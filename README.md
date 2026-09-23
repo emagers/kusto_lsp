@@ -2,16 +2,13 @@
 
 A standalone, local-only Kusto language server using Microsoft's official
 [`Microsoft.Azure.Kusto.Language`](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Language)
-NuGet package. The executable is usable by any LSP client; it does not depend on
-Monaco or a particular editor. It never executes queries, connects to clusters,
-or accepts Azure credentials.
+NuGet package. The executable is usable by any LSP client.
 
 The implementation uses `KustoCode.Parse` / `GetSyntaxDiagnostics` for offline
 diagnostics, `ParseAndAnalyze` / `GetDiagnostics` when a schema is supplied, and
 `KustoCodeService.GetClassifications`, `GetCompletionItems`, and `GetQuickInfo`
 for editor features. Schemas become official `ClusterSymbol`, `DatabaseSymbol`,
-`TableSymbol`, `ColumnSymbol`, and `FunctionSymbol` objects. There is no
-handwritten KQL parser. Maintained
+`TableSymbol`, `ColumnSymbol`, and `FunctionSymbol` objects. Maintained
 [`StreamJsonRpc`](https://github.com/microsoft/vs-streamjsonrpc) handles JSON-RPC,
 Content-Length framing, request IDs, dispatch, and request cancellation.
 
