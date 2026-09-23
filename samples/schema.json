@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "cluster": "https://example.kusto.windows.net",
+  "database": "Demo",
+  "tables": [
+    {
+      "name": "Events",
+      "columns": [
+        { "name": "Timestamp", "type": "datetime" },
+        { "name": "Name", "type": "string" },
+        { "name": "Count", "type": "long" }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "Twice",
+      "parameters": [{ "name": "x", "type": "long" }],
+      "body": "{ x * 2 }"
+    }
+  ]
+}

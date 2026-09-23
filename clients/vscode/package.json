@@ -1,0 +1,83 @@
+{
+  "name": "standalone-kusto",
+  "displayName": "Standalone Kusto",
+  "description": "Kusto language support powered by the official Kusto.Language-based kusto-lsp server.",
+  "version": "0.1.0",
+  "publisher": "kusto-lsp-local",
+  "private": true,
+  "engines": { "vscode": "^1.85.0" },
+  "categories": ["Programming Languages"],
+  "main": "./extension.js",
+  "capabilities": { "untrustedWorkspaces": { "supported": false } },
+  "activationEvents": ["onLanguage:kusto"],
+  "scripts": {
+    "check": "node --check extension.js && node --check configuration.js",
+    "test": "node --test test/*.test.js",
+    "package": "vsce package --allow-missing-repository"
+  },
+  "dependencies": {
+    "vscode-languageclient": "9.0.1"
+  },
+  "devDependencies": {
+    "@vscode/vsce": "3.6.2"
+  },
+  "contributes": {
+    "languages": [
+      {
+        "id": "kusto",
+        "aliases": ["Kusto", "KQL"],
+        "extensions": [".kql", ".csl", ".kusto"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "commands": [
+      { "command": "standaloneKusto.restart", "title": "Kusto: Restart Language Server" }
+    ],
+    "configuration": {
+      "title": "Standalone Kusto",
+      "properties": {
+        "standaloneKusto.serverPath": {
+          "type": "string",
+          "default": "kusto-lsp",
+          "scope": "machine-overridable",
+          "description": "Server executable path, or dotnet for a framework-dependent DLL."
+        },
+        "standaloneKusto.serverArgs": {
+          "type": "array",
+          "items": { "type": "string" },
+          "default": ["--stdio"],
+          "scope": "machine-overridable",
+          "description": "Server arguments. With dotnet, use [\"/absolute/path/kusto-lsp.dll\", \"--stdio\"]."
+        },
+        "standaloneKusto.schemaFile": {
+          "type": "string",
+          "default": "",
+          "scope": "machine-overridable",
+          "description": "Optional absolute path to a schema v1 JSON file. Restart the server after changes."
+        }
+      }
+    },
+    "configurationDefaults": {
+      "[kusto]": { "editor.semanticHighlighting.enabled": true }
+    },
+    "semanticTokenScopes": [
+      {
+        "language": "kusto",
+        "scopes": {
+          "comment": ["comment.line.double-slash"],
+          "keyword": ["keyword.control"],
+          "string": ["string.quoted"],
+          "number": ["constant.numeric"],
+          "type": ["storage.type"],
+          "function": ["entity.name.function"],
+          "parameter": ["variable.parameter"],
+          "variable": ["variable.other"],
+          "property": ["variable.other.property"],
+          "class": ["entity.name.type"],
+          "namespace": ["entity.name.namespace"],
+          "operator": ["keyword.operator"]
+        }
+      }
+    ]
+  }
+}
