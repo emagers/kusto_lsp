@@ -37,3 +37,9 @@ To also run the real-process interoperability test using VS Code's JSON-RPC
 transport, set `KUSTO_LSP_EXECUTABLE` to the published executable path before
 `npm test`. This test is skipped when that variable is unset; it does not launch
 an IDE window.
+
+## License
+
+Project-authored extension code is available under the [MIT License](LICENSE).
+The packaged `LICENSE` is a copy of the repository's root license; keep both
+in sync. Dependencies retain their own licenses and copyright notices.

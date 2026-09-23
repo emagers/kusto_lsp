@@ -3,6 +3,7 @@
   "displayName": "Standalone Kusto",
   "description": "Kusto language support powered by the official Kusto.Language-based kusto-lsp server.",
   "version": "0.1.0",
+  "license": "MIT",
   "publisher": "kusto-lsp-local",
   "private": true,
   "engines": { "vscode": "^1.85.0" },

@@ -251,3 +251,11 @@ Validated locally on macOS ARM64 with the .NET 10 SDK and a self-contained
 publish. Extension checks/package creation are not proof of a real VS Code
 extension-host session; VS Code and Neovim UI behavior and other OS runtimes
 require separate manual verification.
+
+## License
+
+Project-authored code is available under the [MIT License](LICENSE), including
+its warranty disclaimer and limitation of liability. Third-party dependencies,
+including Microsoft Kusto.Language, StreamJsonRpc, the .NET runtime, and
+vscode-languageclient, retain their own licenses and copyright notices.
+Preserve those licenses and notices when redistributing dependencies.

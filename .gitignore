@@ -3,6 +3,31 @@
 bin/
 obj/
 publish/
+TestResults/
+coverage/
+*.trx
 node_modules/
 out/
 *.vsix
+
+# Local editor, OS, and Python test artifacts.
+.vs/
+.idea/
+.vscode/settings.json
+*.user
+*.suo
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+__pycache__/
+*.py[cod]
+
+# Local secrets; keep shareable templates trackable.
+.env
+.env.*
+!.env.example
+!.env.sample
+.npmrc
+secrets.json
