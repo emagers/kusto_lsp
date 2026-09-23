@@ -32,3 +32,8 @@ Semantic highlighting is enabled for Kusto; standard token types also have
 TextMate scope fallbacks for themes. There is no separate TextMate grammar.
 
 Development checks: `npm run check && npm test && npm run package`.
+
+To also run the real-process interoperability test using VS Code's JSON-RPC
+transport, set `KUSTO_LSP_EXECUTABLE` to the published executable path before
+`npm test`. This test is skipped when that variable is unset; it does not launch
+an IDE window.

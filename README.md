@@ -237,6 +237,8 @@ npm ci
 npm run check
 npm test
 npm run package
+# Optional real-process check with VS Code's JSON-RPC transport:
+KUSTO_LSP_EXECUTABLE="/absolute/path/publish/osx-arm64/kusto-lsp" npm test
 ```
 
 The Python tests use only the standard library and drive a real child process,
